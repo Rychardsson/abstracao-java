@@ -154,8 +154,8 @@ public class Main {
         bootcamp.getDevsInscritos().stream()
                 .sorted((dev1, dev2) -> Double.compare(dev2.calcularTotalXp(), dev1.calcularTotalXp()))
                 .forEach(dev -> {
-                    String posicao = dev.calcularTotalXp() >= 150 ? "[1º]" : 
-                                    dev.calcularTotalXp() >= 100 ? "[2º]" : "[3º]";
+                    String posicao = dev.calcularTotalXp() >= 150 ? "[1o]" : 
+                                    dev.calcularTotalXp() >= 100 ? "[2o]" : "[3o]";
                     System.out.println(String.format("   %s %s - %.1f XP (%d conteudos concluidos)", 
                                                     posicao, 
                                                     dev.getNome(), 
