@@ -18,8 +18,8 @@ public class Main {
         System.out.println("=== SISTEMA DE BOOTCAMP - DEMONSTRACAO POO ===\n");
         
         // Criando os conteúdos do bootcamp
-        Curso cursoJava = criarCurso("Curso Java Avançado", 
-                                   "Aprenda Java do básico ao avançado com projetos práticos", 
+        Curso cursoJava = criarCurso("Curso Java Avancado", 
+                                   "Aprenda Java do basico ao avancado com projetos praticos", 
                                    8);
         
         Curso cursoJavaScript = criarCurso("Curso JavaScript Moderno", 
@@ -31,13 +31,12 @@ public class Main {
                                      12);
         
         Mentoria mentoriaCarreira = criarMentoria("Mentoria: Carreira em Tecnologia", 
-                                                "Dicas essenciais para acelerar sua carreira na área tech", 
+                                                "Dicas essenciais para acelerar sua carreira na area tech", 
                                                 LocalDate.now().plusDays(7));
 
-        
         // Criando e configurando o bootcamp
         Bootcamp bootcamp = criarBootcamp("Bootcamp Java Full Stack Developer 2025", 
-                                         "Bootcamp completo para formação de desenvolvedores Java Full Stack");
+                                         "Bootcamp completo para formacao de desenvolvedores Java Full Stack");
         
         // Adicionando conteúdos ao bootcamp
         bootcamp.getConteudos().add(cursoJava);
@@ -45,15 +44,15 @@ public class Main {
         bootcamp.getConteudos().add(cursoSpring);
         bootcamp.getConteudos().add(mentoriaCarreira);
         
-        System.out.println("📚 BOOTCAMP CRIADO: " + bootcamp.getNome());
-        System.out.println("📝 Descrição: " + bootcamp.getDescricao());
-        System.out.println("📅 Período: " + bootcamp.getDataInicial() + " até " + bootcamp.getDataFinal());
-        System.out.println("🎯 Total de conteúdos: " + bootcamp.getConteudos().size());
+        System.out.println("BOOTCAMP CRIADO: " + bootcamp.getNome());
+        System.out.println("Descricao: " + bootcamp.getDescricao());
+        System.out.println("Periodo: " + bootcamp.getDataInicial() + " ate " + bootcamp.getDataFinal());
+        System.out.println("Total de conteudos: " + bootcamp.getConteudos().size());
         System.out.println("\n" + "=".repeat(70) + "\n");
         
         // Simulando desenvolvedores se inscrevendo no bootcamp
         Dev devCamila = criarDev("Camila Silva");
-        Dev devJoao = criarDev("João Santos");
+        Dev devJoao = criarDev("Joao Santos");
         Dev devAna = criarDev("Ana Costa");
         
         // Inscrevendo os devs no bootcamp
@@ -116,27 +115,27 @@ public class Main {
      */
     private static void inscreverDevNoBootcamp(Dev dev, Bootcamp bootcamp) {
         dev.inscreverBootcamp(bootcamp);
-        System.out.println("✅ " + dev.getNome() + " se inscreveu no bootcamp!");
+        System.out.println(">>> " + dev.getNome() + " se inscreveu no bootcamp!");
     }
     
     /**
      * Simula o progresso de um desenvolvedor
      */
     private static void simularProgressoDev(Dev dev, int numeroProgressoes) {
-        System.out.println("\n🎓 PROGRESSO DE " + dev.getNome().toUpperCase() + ":");
-        System.out.println("📋 Conteúdos inscritos: " + dev.getConteudosInscritos().size());
+        System.out.println("\n=== PROGRESSO DE " + dev.getNome().toUpperCase() + " ===");
+        System.out.println("Conteudos inscritos: " + dev.getConteudosInscritos().size());
         
         for (int i = 0; i < numeroProgressoes; i++) {
             if (!dev.getConteudosInscritos().isEmpty()) {
                 dev.progredir();
-                System.out.println("   ✔️ Conteúdo " + (i + 1) + " concluído!");
+                System.out.println("   [OK] Conteudo " + (i + 1) + " concluido!");
             }
         }
         
-        System.out.println("📊 Relatório de " + dev.getNome() + ":");
-        System.out.println("   📚 Conteúdos restantes: " + dev.getConteudosInscritos().size());
-        System.out.println("   🏆 Conteúdos concluídos: " + dev.getConteudosConcluidos().size());
-        System.out.println("   ⭐ XP total: " + String.format("%.1f", dev.calcularTotalXp()));
+        System.out.println("RELATORIO DE " + dev.getNome() + ":");
+        System.out.println("   Conteudos restantes: " + dev.getConteudosInscritos().size());
+        System.out.println("   Conteudos concluidos: " + dev.getConteudosConcluidos().size());
+        System.out.println("   XP total: " + String.format("%.1f", dev.calcularTotalXp()));
     }
     
     /**
@@ -144,26 +143,26 @@ public class Main {
      */
     private static void gerarRelatorioFinal(Bootcamp bootcamp) {
         System.out.println("\n" + "=".repeat(70));
-        System.out.println("📊 RELATÓRIO FINAL DO BOOTCAMP");
+        System.out.println("RELATORIO FINAL DO BOOTCAMP");
         System.out.println("=".repeat(70));
         
-        System.out.println("🎯 Bootcamp: " + bootcamp.getNome());
-        System.out.println("👥 Total de devs inscritos: " + bootcamp.getDevsInscritos().size());
+        System.out.println("Bootcamp: " + bootcamp.getNome());
+        System.out.println("Total de devs inscritos: " + bootcamp.getDevsInscritos().size());
         
         // Ranking por XP
-        System.out.println("\n🏆 RANKING POR XP:");
+        System.out.println("\n>>> RANKING POR XP:");
         bootcamp.getDevsInscritos().stream()
                 .sorted((dev1, dev2) -> Double.compare(dev2.calcularTotalXp(), dev1.calcularTotalXp()))
                 .forEach(dev -> {
-                    String emoji = dev.calcularTotalXp() >= 100 ? "🥇" : 
-                                  dev.calcularTotalXp() >= 50 ? "🥈" : "🥉";
-                    System.out.println(String.format("   %s %s - %.1f XP (%d conteúdos concluídos)", 
-                                                    emoji, 
+                    String posicao = dev.calcularTotalXp() >= 150 ? "[1º]" : 
+                                    dev.calcularTotalXp() >= 100 ? "[2º]" : "[3º]";
+                    System.out.println(String.format("   %s %s - %.1f XP (%d conteudos concluidos)", 
+                                                    posicao, 
                                                     dev.getNome(), 
                                                     dev.calcularTotalXp(),
                                                     dev.getConteudosConcluidos().size()));
                 });
         
-        System.out.println("\n🎉 Bootcamp finalizado com sucesso!");
+        System.out.println("\n>>> Bootcamp finalizado com sucesso!");
         System.out.println("=".repeat(70));
     }

@@ -23,7 +23,7 @@ public class Curso extends Conteudo{
 
     @Override
     public String toString() {
-        return String.format("📚 Curso: %s (⏱️ %dh) - XP: %.1f", 
+        return String.format("[CURSO] %s (%dh) - XP: %.1f", 
                            getTitulo(), 
                            cargaHoraria, 
                            calcularXp());

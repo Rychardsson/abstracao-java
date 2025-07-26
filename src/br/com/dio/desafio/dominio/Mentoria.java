@@ -24,7 +24,7 @@ public class Mentoria extends Conteudo{
 
     @Override
     public String toString() {
-        return String.format("🎯 Mentoria: %s (📅 %s) - XP: %.1f", 
+        return String.format("[MENTORIA] %s (%s) - XP: %.1f", 
                            getTitulo(), 
                            data, 
                            calcularXp());
